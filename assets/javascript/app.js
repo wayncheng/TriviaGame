@@ -9,6 +9,14 @@ $(document).ready(function(){
 			correct: 'd'
 		},
 		{
+			question: 'What is my name?',
+			a: 'Wayne',
+			b: 'Batman',
+			c: 'Blaine',
+			d: 'Dwayne',
+			correct: 'a'
+		},
+		{
 			question: 'What is the capitol of California?',
 			a: 'San Francisco',
 			b: 'Sacramento',
@@ -34,6 +42,11 @@ var round = 0;
 	$('#d > .text').text(set.d);
 
 
+$('#timer-container').click('on',countdown);
+
+function countdown(){
+
+};
 
 
 

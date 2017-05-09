@@ -20,10 +20,14 @@
 <body>
 
 	<h1 id="page-title">Who Wants to Be A  Thousandaire?</h1>
-	<div id="timer-container">
-		<h3 id="timer">60</h3>
+	<!-- <img src="assets/images/regis-fullbody-large.jpg" alt="Regis"> -->
+	<div id="display" class="container">
+		<h2 id="reward">Answer 14 questions correctly to win a thousand dollars! Press Ready to begin.</h2>
+		<div id="timer-container">
+			<h3 id="timer">60</h3>
+			<div id="circle"></div>
+		</div>
 	</div>
-
 
 	<div class="container question content">
 		<!-- <h2 class="question sec-title">Question</h2> -->
@@ -52,6 +56,10 @@
 	</div>
 
 
+	<button id="ready" type="button">Ready</button>
+	<button id="submit" type="button">Final Answer</button>
+
+
 
 
 
@@ -65,7 +73,19 @@
 
 <!-- JS Links -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="assets/javascript/circle-progress.js" type="text/javascript" charset="utf-8"></script>
 <script src="assets/javascript/app.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+  // $('#circle').circleProgress({
+  // 	startAngle: -Math.PI/2,
+  //   value: 0.9,
+  //   size: 80,
+  //   reverse: true,
+  //   fill: {
+  //     gradient: ["red", "orange"]
+  //   }
+  // });
+</script>
 <!-- //////////// -->
 </body>
 </html>

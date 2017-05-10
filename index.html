@@ -18,11 +18,12 @@
 
 </head>
 <body>
-
+<div id="main">
+	
 	<h1 id="page-title">Who Wants to Be A  Thousandaire?</h1>
 	<!-- <img src="assets/images/regis-fullbody-large.jpg" alt="Regis"> -->
 	<div id="display" class="container">
-		<h2 id="reward">Answer 14 questions correctly to win a thousand dollars! Press Ready to begin.</h2>
+		<h2 id="reward">Answer 14 questions about the TV show Friends correctly to win a thousand dollars! Press Ready to begin.</h2>
 		<div id="timer-container">
 			<h3 id="timer">60</h3>
 			<div id="circle"></div>
@@ -35,22 +36,29 @@
 	</div>
 
 	<div class="container choices content">
-		<div id="a" class="a choice wrap">
-			<span class="a choice letter">a</span>
-			<p class="a choice text" value="a"></p>
+		<div class="row row-1">
+				<div id="a" class="a choice wrap">
+					<span class="a choice letter">a</span>
+					<p class="a choice text" value="a"></p>
+					<!-- <img class="choice background" src="assets/images/choice-fixed-1000.svg" alt="trivia choice"> -->
+				</div>
+				<div id="b" class="b choice wrap alternate">
+					<span class="b choice letter">b</span>
+					<p class="b choice text" value="b"></p>
+					<!-- <img class="choice background" src="assets/images/choice-fixed-1000.svg" alt="trivia choice"> -->
+				</div>
 		</div>
-		<div id="b" class="b choice wrap">
-			<span class="b choice letter">b</span>
-			<p class="b choice text" value="b"></p>
-		</div>
-		<br>
-		<div id="c" class="c choice wrap">
-			<span class="c choice letter">c</span>
-			<p class="c choice text" value="c"></p>
-		</div>
-		<div id="d"  class="d choice wrap">
-			<span class="d choice letter">d</span>
-			<p class="d choice text" value="d"></p>
+		<div class="row row-2">
+				<div id="c" class="c choice wrap">
+					<span class="c choice letter">c</span>
+					<p class="c choice text" value="c"></p>
+					<!-- <img class="choice background" src="assets/images/choice-fixed-1000.svg" alt="trivia choice"> -->
+				</div>
+				<div id="d"  class="d choice wrap alternate">
+					<span class="d choice letter">d</span>
+					<p class="d choice text" value="d"></p>
+					<!-- <img class="choice background" src="assets/images/choice-fixed-1000.svg" alt="trivia choice"> -->
+				</div>
 		</div>
 		
 	</div>
@@ -58,7 +66,29 @@
 
 	<button id="ready" type="button">Ready</button>
 	<button id="submit" type="button">Final Answer</button>
-
+	
+</div>
+<div id="page2">
+	<!-- <img id="regis" src="assets/images/regis-fullbody-large-0.jpg" alt=""> -->
+	<img id="regis" src="assets/images/regis-fullbody-large-24-3.png" alt="">
+	<button id="endgame" type="button">End Game</button>
+	
+	<table id="scorecard">
+		<thead>
+			<tr>
+				<th>No.</th>
+				<th>Question</th>
+				<th>Your Ans</th>
+				<th>Right Ans</th>
+				<th>Result</th>
+				<th>Amount Won</th>
+				<th>Currency</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
 
 
 
@@ -76,7 +106,7 @@
 <script src="assets/javascript/circle-progress.js" type="text/javascript" charset="utf-8"></script>
 <script src="assets/javascript/app.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-  // $('#circle').circleProgress({
+  // $(#circle).circleProgress({
   // 	startAngle: -Math.PI/2,
   //   value: 0.9,
   //   size: 80,

@@ -19,20 +19,19 @@ body {
 	/*background-color: #fff;*/
 }
 #page2 {
-	height: initial;
-	min-height: 100vh;
-	padding: 40px 5%;
-	margin: 0;
 	background-color: #ECF0F1;
-	position: relative;
 }
 
 #regis {
 	position: absolute;
 	left: -50px;
 	bottom: 0;
-	height: 50%;
+	height: initial;
+	max-height: 60%;
+	min-height: 60%; 
 	width: initial;
+	max-width: 300px;
+	float: left;
 }
 .container {
 	margin: 0 auto;
@@ -257,12 +256,11 @@ button {
 
 
 #scorecard {
-	display: block;
 	margin: 0 auto;
-	width: 70%;
+	width: 100%;
 	display: none;
 	color: #333;
-	float: right;
+	/*float: right;*/
 }
 th {
 	line-height: 1em;

@@ -50,6 +50,7 @@ h1#page-title {
 	line-height: 1em;
 	color: #fff;
 	margin: 0 auto;
+	min-width: 85%;
 	width: 85%;
 	padding: 15vh 0 20px;
 }
@@ -96,6 +97,7 @@ h2.question {
 		line-height: 56px;
 		text-align: center;
 		background-image: url(../images/line-56x1000-3pt.svg);
+		background-repeat-y: no-repeat;
 	}
 	.wrap {
 		display: inline-block;
@@ -103,7 +105,7 @@ h2.question {
 		/*width: 500px;*/
 		min-width: 200px;
 		max-width:300px;
-		font-size: 18px;
+		font-size: 15px;
 		height: 56px;
 		line-height: 56px;
 		margin: 0 -1px `;
@@ -115,7 +117,7 @@ h2.question {
 		background-position: 40%;
 		cursor: pointer;
 		float: left;
-		overflow: hidden;
+		/*overflow: hidden;*/
 		position: absolute;
 		top: 0;
 		right: 51%;
@@ -146,6 +148,8 @@ h2.question {
 		color: #fff;
 	}
 	.text {
+		width: 80%;
+		text-align: left;
 	}
 	.letter {
 		margin-right: 10px;
@@ -154,7 +158,9 @@ h2.question {
 	}
 	.choice.wrap.selected {
 		background-image: url(../images/choice-min-yellow.svg);
-		color: #000000;
+	}
+	.selected .text {
+		/*color: #000;*/
 	}
 	.choice.selected span {
 		color: #000000;
@@ -222,13 +228,18 @@ button {
 	cursor: pointer;
 	font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
 	background-color: #f1c40f;
-	color: #000;
-	font-size: 30px;
+	background-color: #FFF176;
+	background-color: #FFEE58;
+	background-color: #FFD54F;
+	color: #333;
+	font-weight: 500;
+	text-transform: uppercase;
+	font-size: 24px;
 	line-height: 30px;
 	outline: none;
 	border: none;
-	margin: 5px;
-	padding: 10px 40px;
+	margin: 20px;
+	padding: 12px 40px;
 	border-radius: 5px;
 }
 #ready {
@@ -258,29 +269,9 @@ button {
 #scorecard {
 	margin: 0 auto;
 	width: 100%;
-	display: none;
+	/*display: none;*/
 	color: #333;
 	/*float: right;*/
-}
-th {
-	line-height: 1em;
-}
-tr {
-	font-size: 14px;
-	height: 2em;
-	max-height: 2em;
-	line-height: 2em;
-	overflow: hidden;
-}
-td {
-	font-weight: 300;
-	max-width: 300px;
-	overflow: hidden;
-	white-space: nowrap;
-	/*outline: 1px solid #fff;*/
-	text-align: center;
-	/*padding: 0 5px;*/
-	padding: 0;
 }
 .col-1 {
 	padding: 0 10px;
@@ -288,8 +279,47 @@ td {
 .col-2, .col-3{
 	/*max-width: 50px;*/
 	width: 10px;
+	text-transform: uppercase;
 	/*padding: 0;*/
 }
 .col-5 {
 	width: 20px;
+}
+
+
+@media all and (max-width: 1024px ){
+	h1#page-title {
+		font-size: 80px;
+	}
+}
+@media all and (max-width: 768px) {
+	h1#page-title {
+		font-size: 70px;
+		padding-top: 10vh;
+	}
+}
+@media all and (max-width: 425px) {
+	h1#page-title {
+		font-size: 50px;
+		padding-top: 5vh;
+	}
+	.container.content {
+/*		width: 100%;
+		max-width: 100%;
+		min-width: 80%;
+		min-height: 60px;*/
+	}
+	.row {
+/*		height: 112px;
+		line-height: 112px;*/
+	}
+	.choice.wrap, .choice.wrap.alternate {
+/*		width: 90%;
+		position: static;
+		float: left;
+		margin: 5px auto;
+		max-width: 300px;
+		height: initial;*/
+	}
+
 }

@@ -99,7 +99,7 @@ var examInfo = [
 		question: 'Under what circumstance does Ross cite for "cheating" on Rachel?',
 		a: "Doesn't count if it's in London",
 		b: 'Way too drunk',
-		c: 'What happens in Vegas, stays in Vegas.',
+		c: 'It was Vegas!',
 		d: 'THEY. WERE. ON. A. BREAK.',
 		correct: 'd',
 		reward: '20',
@@ -109,7 +109,7 @@ var examInfo = [
 		currency: '',
 	},
 	{
-		question: 'Before getting married, Monica insists on having something old, something new, borrowed, and something...',
+		question: 'Before getting married, Monica needed having something old, new, borrowed, and...',
 		a: 'brewed',
 		b: 'pruned',
 		c: 'blue',
@@ -176,7 +176,7 @@ var examInfo = [
 	{
 		question: "What was Chandler Bing's job before he went into advertising?",
 		a: 'Transponster',
-		b: 'Statistical Factoring and Data Reconfiguration',
+		b: 'Stat. Factoring and Data Reconfig.',
 		c: 'Computer stuff',
 		d: 'Data Analyst',
 		correct: 'b',
@@ -189,7 +189,7 @@ var examInfo = [
 ];
 
 
-var currency = "USD";
+var currency = "dollars";
 var intervalId;
 var $c = $('#circle');
 var $r = $('#reward');
@@ -197,6 +197,7 @@ var timeLeft;
 var round = 0;
 var userAns;
 var set;
+var escape = 'no';
 
 //  stopwatch object.
 var stopwatch = {
@@ -245,13 +246,16 @@ var stopwatch = {
   }
 }
 
-
-// $(document).ready(init());
-
 $('#submit').on('click', stopwatch.stop);
 $('#submit').on('click', submit);
 
 function init(){
+	// Check for escape
+	if (escape === 'yes') {
+		console.log('escape',escape);
+		escape = 'no';
+		return;
+	}
 	// End game once all round are done.
 	if ( round === examInfo.length ) {
 		endGame();
@@ -262,13 +266,13 @@ function init(){
 	set = examInfo[round];
 
 	// Display reward amount
-	$('#reward').text('For...$' + set.reward);
+	$('#reward').text('For... ' + set.reward + ' ' + currency);
 
 	// clear selections
 	$('.choice.wrap').removeClass('selected').removeClass('correct-answer');
-	$('correct-answer')
+	// $('correct-answer')
 	// $('.choice.wrap').css('background-image','url(assets/images/choice-min.svg)');
-
+	stopwatch.stop();
 	stopwatch.reset();
 	stopwatch.start();
 
@@ -305,7 +309,7 @@ function select(){
 	set.response = userAns;
 	
 	if ( typeof(userAns) === 'string' ) {
-		$('#submit').css('background-color','#f1c40f');
+		$('#submit').css('background-color','#FFD54F');
 	}
 	else {
 		$('#submit').css('background-color','#95a5a6');
@@ -322,7 +326,7 @@ function submit(){
 	//After first loss
 	var firstLossMsg = '';
 
-	if( currency === "USD")
+	if( currency === "dollars")
 		firstLossMsg = ' You are now playing for doll hairs.'
 
 	// check answer
@@ -360,11 +364,12 @@ function submit(){
 }
 
 
-function rerack(){
-	// next question
-	round++;
-	// initiate next round
-	setTimeout(init,2000);
+function rerack(){		
+// next question
+		round++;
+		// initiate next round
+		setTimeout(init,2000);
+	
 }
 
 
@@ -381,12 +386,21 @@ function begin(){
 // Bind begin() to ready button on click
 $('#ready').on('click', begin);
 $('#endgame').on('click',endGame);
+
 function endGame(){
 	console.log('-----GAME OVER-----')
-	$('#scorecard').show();
+	// $('#scorecard').show();
+	submit();
+
+	escape = 'yes';
+
+	// Stop Time
+	stopwatch.stop();
+
+
 
 	// Write all results to table
-	// For ever round...
+	// For every round...
 	for (var i=0; i<examInfo.length; i++) {
 		var set = examInfo[i];
 		var tr = $('<tr/>');
@@ -418,8 +432,62 @@ function endGame(){
 	$('#main').css('height','initial');
 	$('#page2').show();
 	$('button').hide();
+	$('#restart').show();
 	$('#reward').hide();
+	$('#submit').hide();
 	$('#timer-container').hide();
 }
+
+
+// question: 'How many "friends" are there?',
+// a: '12',
+// b: '3',
+// c: '5',
+// d: '6',
+// correct: 'd',
+// reward: '0.50',
+// response: '',
+// result: '',
+// loot: '',
+// currency: '',
+
+function stop(){
+	stopwatch.stop();
+}
+
+
+function restart(){
+
+	// For every round...
+	for (var i=0; i<examInfo.length; i++) {
+		var set = examInfo[i];
+
+		set.response = '';
+		set.result = '';
+		set.loot = '';
+		set.currency = '';
+	}
+
+	currency = 'dollars';
+
+	// Hide/show elements
+	$('#page2').hide();
+	$('.container.content').show();
+	$('#main').css('height','100vh');
+	$('button').show();
+	$('#reward').show();
+	// $('#timer-container').show();
+
+	// Clear table body
+	$('tbody').empty();
+	
+	round = 0;
+
+	begin();
+}
+
+$('#restart').on('click',restart);
+
+
 
 }); ////////////////////////////// end document ready
